@@ -79,19 +79,8 @@ MonoBehaviour:
     targetOffset: {x: 0, y: 0, z: 0.2}
     transition: 1
     transitionDuration: 0.2
-  - onScreenSprite: {fileID: 21300000, guid: 4704cd4695c33f04d8eceb3037509cb2, type: 3}
-    onScreenColor: {r: 0.07586241, g: 0, b: 1, a: 0.40392157}
-    onScreenRotates: 0
-    offScreenSprite: {fileID: 0}
-    offScreenColor: {r: 0, g: 0.21379304, b: 1, a: 1}
-    offScreenRotates: 1
-    targetOffset: {x: 0, y: 0, z: 0.2}
-    transition: 1
-    transitionDuration: 0.2
   targets:
   - target: {fileID: 0}
     indicatorID: 0
   - target: {fileID: 0}
     indicatorID: 1
-  - target: {fileID: 0}
-    indicatorID: 2
