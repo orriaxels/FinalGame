@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 2c90e4a0508d439428595a9ee6eb1ffc
+timeCreated: 1433670799
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: AMineral00
+    100002: AMineral01
+    100004: AMineral02
+    100006: AMineral03
+    100008: AMineral04
+    100010: AMineral05
+    100012: AMineral06
+    100014: AMineral07
+    100016: AMineral08
+    100018: AMineral09
+    100020: AMineral10
+    100022: AMineral11
+    100024: AMineral12
+    100026: AMineral13
+    100028: AMineral14
+    100030: //RootNode
+    400000: AMineral00
+    400002: AMineral01
+    400004: AMineral02
+    400006: AMineral03
+    400008: AMineral04
+    400010: AMineral05
+    400012: AMineral06
+    400014: AMineral07
+    400016: AMineral08
+    400018: AMineral09
+    400020: AMineral10
+    400022: AMineral11
+    400024: AMineral12
+    400026: AMineral13
+    400028: AMineral14
+    400030: //RootNode
+    2300000: AMineral00
+    2300002: AMineral01
+    2300004: AMineral02
+    2300006: AMineral03
+    2300008: AMineral04
+    2300010: AMineral05
+    2300012: AMineral06
+    2300014: AMineral07
+    2300016: AMineral08
+    2300018: AMineral09
+    2300020: AMineral10
+    2300022: AMineral11
+    2300024: AMineral12
+    2300026: AMineral13
+    2300028: AMineral14
+    3300000: AMineral00
+    3300002: AMineral01
+    3300004: AMineral02
+    3300006: AMineral03
+    3300008: AMineral04
+    3300010: AMineral05
+    3300012: AMineral06
+    3300014: AMineral07
+    3300016: AMineral08
+    3300018: AMineral09
+    3300020: AMineral10
+    3300022: AMineral11
+    3300024: AMineral12
+    3300026: AMineral13
+    3300028: AMineral14
+    4300000: AMineral00
+    4300002: AMineral12
+    4300004: AMineral11
+    4300006: AMineral10
+    4300008: AMineral04
+    4300010: AMineral05
+    4300012: AMineral06
+    4300014: AMineral13
+    4300016: AMineral14
+    4300018: AMineral09
+    4300020: AMineral08
+    4300022: AMineral03
+    4300024: AMineral02
+    4300026: AMineral01
+    4300028: AMineral07
+    6400000: AMineral00
+    6400002: AMineral01
+    6400004: AMineral02
+    6400006: AMineral03
+    6400008: AMineral04
+    6400010: AMineral05
+    6400012: AMineral06
+    6400014: AMineral07
+    6400016: AMineral08
+    6400018: AMineral09
+    6400020: AMineral10
+    6400022: AMineral11
+    6400024: AMineral12
+    6400026: AMineral13
+    6400028: AMineral14
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 150
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

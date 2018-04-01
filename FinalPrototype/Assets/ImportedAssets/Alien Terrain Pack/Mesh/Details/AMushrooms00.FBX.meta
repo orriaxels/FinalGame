@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 6eb5af8e482205146a0ca4ae5a21e7c8
+timeCreated: 1433497116
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: HangerBall
+    100004: mushroom00
+    100006: mushroom001
+    100008: mushroom002
+    100010: mushroom003
+    100012: mushroom004
+    100014: mushroom005
+    100016: mushroom006
+    100018: mushroom007
+    100020: mushroom008
+    100022: mushroom009
+    100024: mushroom010
+    100026: mushroom011
+    400000: //RootNode
+    400002: HangerBall
+    400004: mushroom00
+    400006: mushroom001
+    400008: mushroom002
+    400010: mushroom003
+    400012: mushroom004
+    400014: mushroom005
+    400016: mushroom006
+    400018: mushroom007
+    400020: mushroom008
+    400022: mushroom009
+    400024: mushroom010
+    400026: mushroom011
+    2300000: //RootNode
+    2300002: HangerBall
+    2300004: mushroom00
+    2300006: mushroom001
+    2300008: mushroom002
+    2300010: mushroom003
+    2300012: mushroom004
+    2300014: mushroom005
+    2300016: mushroom006
+    2300018: mushroom007
+    2300020: mushroom008
+    2300022: mushroom009
+    2300024: mushroom010
+    2300026: mushroom011
+    3300000: //RootNode
+    3300002: HangerBall
+    3300004: mushroom00
+    3300006: mushroom001
+    3300008: mushroom002
+    3300010: mushroom003
+    3300012: mushroom004
+    3300014: mushroom005
+    3300016: mushroom006
+    3300018: mushroom007
+    3300020: mushroom008
+    3300022: mushroom009
+    3300024: mushroom010
+    3300026: mushroom011
+    4300000: mushroom00
+    4300002: HangerBall
+    4300004: mushroom001
+    4300006: mushroom002
+    4300008: mushroom003
+    4300010: mushroom004
+    4300012: mushroom005
+    4300014: mushroom006
+    4300016: mushroom007
+    4300018: mushroom008
+    4300020: mushroom009
+    4300022: mushroom010
+    4300024: mushroom011
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 40
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
