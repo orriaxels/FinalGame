@@ -9,6 +9,8 @@ TagManager:
   - entity
   - Gun
   - Turret
+  - LootCrate
+  - SheildLoot
   layers:
   - Default
   - TransparentFX
