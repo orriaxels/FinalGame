@@ -44,9 +44,6 @@ public class PlayerController : MonoBehaviour {
 		// the duration of the character's lifetime
 		player = ReInput.players.GetPlayer(playerId);
 
-		// Get the character controller
-		// cc = GetComponent<CharacterController>();
-
 	    anim = GetComponent<Animator>();
 		myRigidBody = GetComponent<Rigidbody>();
 	    theGun = transform.Find("rifle").gameObject.GetComponent<GunController>();
@@ -64,29 +61,12 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {    
 		GetInput();
-		// ProcessInput();
-
-		// var rotate = player.GetAxis("Rotate Player") * Time.deltaTime * rotateSpeed;
-		// var move = player.GetAxis("Move Horizontal") * Time.deltaTime * moveSpeed;
-		// var strafe = player.GetAxis("Strafe") * Time.deltaTime * strafeSpeed;
-
-		// transform.Rotate(0, rotate, 0);
-		// transform.Translate(strafe, 0, move);
-
-		// moveInput = new Vector3(player.GetAxis("MHorizontal"), 0f, player.GetAxis("MVertical"));
-		// moveVelocity = moveInput * moveSpeed;
 
 		Vector3 playerDirection = Vector3.right * player.GetAxisRaw("RHorizontal") + Vector3.forward * player.GetAxisRaw("RVertical");
 		if(playerDirection.sqrMagnitude > 0.3f)
 		{
 			transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
 		}
-
-	    // float animMove = moveInput.x * 20;
-	    // float animStrafe = moveInput.z * 20;
-
-	    // anim.SetFloat("Forward", animMove);
-	    // anim.SetFloat("Turn", animStrafe);
 	      
 	}
 
@@ -227,6 +207,6 @@ public class PlayerController : MonoBehaviour {
 		else if(player.GetButtonUp("Fire"))
 		{
 			theGun.isFiring = false;
-		}	
+		}
 	}
 }
