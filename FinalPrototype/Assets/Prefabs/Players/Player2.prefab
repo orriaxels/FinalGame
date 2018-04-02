@@ -1405,7 +1405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972752339292282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2400055, y: 0, z: -14.75}
+  m_LocalPosition: {x: 7.99, y: 0, z: 1.5580933}
   m_LocalScale: {x: 0.6999999, y: 0.6999999, z: 0.6999999}
   m_Children:
   - {fileID: 4447049192521574}
@@ -3327,6 +3327,14 @@ MonoBehaviour:
   health: 100
   healthBar: {fileID: 114588661939731262}
   pushing: 0
+  shield: {fileID: 0}
+  hasShield: 0
+  shieldObject: {fileID: 1206368349721302, guid: a0fb03d8ed94b412fad96b5974771389,
+    type: 2}
+  doubleDamage: {fileID: 0}
+  hasDoubleDamage: 0
+  usingDoubleDamage: 0
+  doubleDamageObject: {fileID: 0}
   rotateSpeed: 0
   moveSpeed: 5
   strafeSpeed: 5

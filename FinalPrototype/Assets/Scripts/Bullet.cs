@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+        Debug.Log("Damage: " + damage);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 		timeAlive += Time.deltaTime;
@@ -60,7 +61,7 @@ public class Bullet : MonoBehaviour
 
         if(col.gameObject.tag == "LootCrate")
         {
-            col.gameObject.GetComponent<LootCrate>().takeDamage(10);
+            col.gameObject.GetComponent<LootCrate>().takeDamage(20);
             Destroy(this.gameObject);
             // Instantiate(impactEffect, transform.position, transform.rotation);
             bulletImpact();

@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421796589846128}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -7.76, y: 0.322, z: -1.8}
+  m_LocalPosition: {x: -7.76, y: -0.004, z: -1.8}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4330872362045946}
@@ -171,3 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 159918, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 2}
+  lootIndicator: {fileID: 1312955972390502, guid: 79c8fcdf347ee4e2ca47a7150180b510,
+    type: 2}
+  loot:
+  - {fileID: 1657076715874754, guid: 0e9d51ef736af4eb5bd4df7b282141f8, type: 2}
+  - {fileID: 1865476923928158, guid: bc8a9502b4e074327bafa9a3638fb5a2, type: 2}

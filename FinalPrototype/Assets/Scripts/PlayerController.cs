@@ -22,6 +22,18 @@ public class PlayerController : MonoBehaviour {
     private bool dash;
     public bool pushing;
 
+	// Loot objects
+	public Image shield;
+	public bool hasShield = false;
+	public GameObject shieldObject;
+
+	public Image doubleDamage;
+	public bool hasDoubleDamage = false;
+	public bool usingDoubleDamage = false;
+	public GameObject doubleDamageObject;
+
+	private float doubleDamageTimer = 5.0f;
+
 	private bool fire;
 	public float rotateSpeed;
 	public float moveSpeed; 
@@ -56,11 +68,42 @@ public class PlayerController : MonoBehaviour {
 		rotateSpeed = 150;
 
 		pushObject = GameObject.FindObjectOfType<PushObject>();
+		
+		changeAlpha(shield, 0.2f);
+		changeAlpha(doubleDamage, 0.2f);
 	}
 	
 	// Update is called once per frame
 	void Update () {    
 		GetInput();
+		
+		if(hasShield)
+		{
+			changeAlpha(shield, 1);
+		}
+		else
+		{
+			changeAlpha(shield, 0.2f);
+		}
+
+		if(hasDoubleDamage)
+		{
+			changeAlpha(doubleDamage, 1);
+			if(usingDoubleDamage)
+			{
+				doubleDamageTimer -= Time.deltaTime;
+				if(doubleDamageTimer <= 0)
+				{
+					doubleDamageTimer = 5.0f;
+					hasDoubleDamage = false;
+					usingDoubleDamage = false;
+				}
+			}
+		}
+		else
+		{
+			changeAlpha(doubleDamage, 0.2f);
+		}
 
 		Vector3 playerDirection = Vector3.right * player.GetAxisRaw("RHorizontal") + Vector3.forward * player.GetAxisRaw("RVertical");
 		if(playerDirection.sqrMagnitude > 0.3f)
@@ -208,5 +251,27 @@ public class PlayerController : MonoBehaviour {
 		{
 			theGun.isFiring = false;
 		}
+
+		if(player.GetButtonDown("Up") && hasShield)
+		{
+			Vector3 shieldPos = new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z);
+			GameObject sheildEffect = Instantiate(shieldObject, shieldPos, transform.rotation);
+			sheildEffect.transform.parent = this.transform;
+			Destroy(sheildEffect, 10.0f);
+			hasShield = false;
+		}
+
+		if(player.GetButtonDown("Left") && hasDoubleDamage)
+		{
+			
+			usingDoubleDamage = true;
+		}
+	}
+
+	private void changeAlpha(Image image, float value)
+	{
+			Color c = image.color;
+			c.a = value;
+			image.color = c;
 	}
 }

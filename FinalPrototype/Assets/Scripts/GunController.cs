@@ -25,6 +25,7 @@ public class GunController : MonoBehaviour
 	private float startHealth = 5;
 	public Image overHeatBar;
 
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +40,10 @@ public class GunController : MonoBehaviour
 			{
 				Bullet newBullet = Instantiate (bullet, firePoint.position, firePoint.rotation) as Bullet;
 				newBullet.speed = bulletSpeed;
+				if(transform.parent.gameObject.GetComponent<PlayerController>().usingDoubleDamage)
+				{
+					newBullet.damage = 50;
+				}
 			}
 
 			overHeatTimer -= Time.deltaTime;
@@ -56,6 +61,10 @@ public class GunController : MonoBehaviour
 			Bullet newBullet = Instantiate (bullet, firePoint.position, firePoint.rotation) as Bullet;
 			newBullet.speed = bulletSpeed;
 			timer = 0.29f;
+			if(transform.parent.gameObject.GetComponent<PlayerController>().usingDoubleDamage)
+			{
+				newBullet.damage = 50;
+			}
 		}
 
 		if (overHeatTimer < 0) 
