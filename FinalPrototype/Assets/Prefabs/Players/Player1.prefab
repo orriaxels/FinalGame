@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 114662793381252108}
   - component: {fileID: 136544257725450558}
   - component: {fileID: 114424948087423582}
+  - component: {fileID: 135433433893931926}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -3478,20 +3479,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  health: 20
+  health: 100
   healthBar: {fileID: 114486111062420268}
   pushing: 0
   shield: {fileID: 0}
   hasShield: 0
+  usingShield: 0
   shieldObject: {fileID: 1206368349721302, guid: a0fb03d8ed94b412fad96b5974771389,
     type: 2}
+  sheildColliderTimer: 10
   doubleDamage: {fileID: 0}
   hasDoubleDamage: 0
   usingDoubleDamage: 0
   doubleDamageObject: {fileID: 1865476923928158, guid: bc8a9502b4e074327bafa9a3638fb5a2,
     type: 2}
   healthKit: {fileID: 0}
-  hasHealthKit: 1
+  hasHealthKit: 0
   healthKitObject: {fileID: 1954396271830822, guid: b574352341cd948369891ff4c50bdc2e,
     type: 2}
   rotateSpeed: 0
@@ -3601,6 +3604,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!135 &135433433893931926
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292021534003908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1.6312401
+  m_Center: {x: 0.03568871, y: 0.85383815, z: 0}
 --- !u!136 &136544257725450558
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3633,10 +3648,10 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: 5e5319b991184514185ea9d753476203, type: 2}
   - {fileID: 2100000, guid: a238be05ab985634a8b62d84039a200c, type: 2}
   - {fileID: 2100000, guid: e9a0175a24fe5f74b98280d938fa5115, type: 2}
-  - {fileID: 2100000, guid: f85ffcee5adfbea4cb828015dee1f65f, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 62ca80444ea4d914093ea6d2fcb9e1f9, type: 2}
   - {fileID: 2100000, guid: 908f58e8cfded6547b0bdd08a6e4e492, type: 2}
-  - {fileID: 2100000, guid: da97db5c730e4834aa7203c56622c6f8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

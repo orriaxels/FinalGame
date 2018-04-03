@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour {
 	// shield
 	public Image shield;
 	public bool hasShield = false;
+	public bool usingShield = false;
 	public GameObject shieldObject;
+	public float sheildColliderTimer = 10.0f;
+
 
 	// doubledamage
 	public Image doubleDamage;
@@ -93,6 +96,17 @@ public class PlayerController : MonoBehaviour {
 		else
 		{
 			changeAlpha(shield, 0.2f);
+		}
+
+		if(usingShield)
+		{
+			sheildColliderTimer -= Time.deltaTime;
+			if(sheildColliderTimer <= 0)
+			{
+				this.gameObject.GetComponent<SphereCollider>().enabled = false;
+				sheildColliderTimer = 10.0f;
+				usingShield = false;	
+			}
 		}
 
 		if(hasDoubleDamage)
@@ -241,8 +255,11 @@ public class PlayerController : MonoBehaviour {
 
     public void takeDamage(float amount)
     {
-        health -= amount;
-        healthBar.fillAmount = health / startHealth;
+		if(!usingShield)
+		{
+			health -= amount;
+			healthBar.fillAmount = health / startHealth;
+		}
     }
 
     private void ConvertMoveInput()
@@ -272,8 +289,10 @@ public class PlayerController : MonoBehaviour {
 
 		if(player.GetButtonDown("Up") && hasShield)
 		{
+			usingShield = true;
 			Vector3 shieldPos = new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z);
 			GameObject sheildEffect = Instantiate(shieldObject, shieldPos, transform.rotation);
+			this.gameObject.GetComponent<SphereCollider>().enabled = true;
 			sheildEffect.transform.parent = this.transform;
 			Destroy(sheildEffect, 10.0f);
 			hasShield = false;
@@ -310,4 +329,16 @@ public class PlayerController : MonoBehaviour {
 			c.a = value;
 			image.color = c;
 	}
+
+	void OnCollisionEnter(Collision col)
+  	{
+		if(usingShield)
+		{
+			if (col.gameObject.name == "Plane")
+			{
+				
+				Physics.IgnoreCollision(col.collider, GetComponent<SphereCollider>());
+			}
+		}
+  	}
 }

@@ -1228,6 +1228,7 @@ GameObject:
   - component: {fileID: 114035509423275086}
   - component: {fileID: 136159705998561398}
   - component: {fileID: 114071587675262808}
+  - component: {fileID: 135024131322696206}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -3329,8 +3330,10 @@ MonoBehaviour:
   pushing: 0
   shield: {fileID: 0}
   hasShield: 0
+  usingShield: 0
   shieldObject: {fileID: 1206368349721302, guid: a0fb03d8ed94b412fad96b5974771389,
     type: 2}
+  sheildColliderTimer: 10
   doubleDamage: {fileID: 0}
   hasDoubleDamage: 0
   usingDoubleDamage: 0
@@ -3601,6 +3604,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!135 &135024131322696206
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972752339292282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1.674435
+  m_Center: {x: 0.0109761115, y: 0.7902739, z: 0}
 --- !u!136 &136159705998561398
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3636,7 +3651,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: 455883ab641b74bc2869c03591e72ccf, type: 2}
   - {fileID: 2100000, guid: 62ca80444ea4d914093ea6d2fcb9e1f9, type: 2}
   - {fileID: 2100000, guid: 908f58e8cfded6547b0bdd08a6e4e492, type: 2}
-  - {fileID: 2100000, guid: da97db5c730e4834aa7203c56622c6f8, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
