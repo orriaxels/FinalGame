@@ -40,6 +40,12 @@ public class Bullet : MonoBehaviour
             bulletImpact();
         }
 
+        if (col.gameObject.name == "Shield" && enemyBullet)
+        {
+            Destroy(this.gameObject);
+            bulletImpact();
+        }
+
 
         if (col.gameObject.layer == 8)
         {

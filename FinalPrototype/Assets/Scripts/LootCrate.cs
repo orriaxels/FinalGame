@@ -24,7 +24,7 @@ public class LootCrate : MonoBehaviour {
 			GameObject expl = Instantiate(explosion, posExplosion, transform.rotation);
 			Destroy(expl, 2.0f);	
 					
-			int lootNr = Random.Range(0, 2);
+			int lootNr = Random.Range(0, 3);
 			// Loot
 			Vector3 posLoot = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
 			Instantiate(loot[lootNr], posLoot, transform.rotation);
@@ -40,6 +40,10 @@ public class LootCrate : MonoBehaviour {
 			else if(lootNr == 1)
 			{
 				lootIndi.gameObject.GetComponent<LootIndicator>().isDoubleDamage = true;
+			}
+			else if(lootNr == 2)
+			{
+				lootIndi.gameObject.GetComponent<LootIndicator>().isHealthKit = true;
 			}
 		}
 	}

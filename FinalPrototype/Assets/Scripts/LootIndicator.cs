@@ -7,6 +7,7 @@ public class LootIndicator : MonoBehaviour {
 	
 	public bool isShield;
 	public bool isDoubleDamage;
+	public bool isHealthKit;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +33,15 @@ public class LootIndicator : MonoBehaviour {
 			if(isDoubleDamage)
 			{
 				if(col.gameObject.GetComponent<PlayerController>().hasDoubleDamage == false)
+				{
+					Destroy(this.gameObject);
+				}
+			}
+
+
+			if(isHealthKit)
+			{
+				if(col.gameObject.GetComponent<PlayerController>().hasHealthKit == false)
 				{
 					Destroy(this.gameObject);
 				}

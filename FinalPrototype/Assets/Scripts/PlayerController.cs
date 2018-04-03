@@ -23,16 +23,24 @@ public class PlayerController : MonoBehaviour {
     public bool pushing;
 
 	// Loot objects
+
+	// shield
 	public Image shield;
 	public bool hasShield = false;
 	public GameObject shieldObject;
 
+	// doubledamage
 	public Image doubleDamage;
 	public bool hasDoubleDamage = false;
 	public bool usingDoubleDamage = false;
 	public GameObject doubleDamageObject;
 
 	private float doubleDamageTimer = 5.0f;
+
+	// health
+	public Image healthKit;
+	public bool hasHealthKit = false;
+	public GameObject healthKitObject;
 
 	private bool fire;
 	public float rotateSpeed;
@@ -71,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 		
 		changeAlpha(shield, 0.2f);
 		changeAlpha(doubleDamage, 0.2f);
+		healthBar.fillAmount = health / startHealth;
 	}
 	
 	// Update is called once per frame
@@ -103,6 +112,15 @@ public class PlayerController : MonoBehaviour {
 		else
 		{
 			changeAlpha(doubleDamage, 0.2f);
+		}
+
+		if(hasHealthKit)
+		{
+			changeAlpha(healthKit, 1);
+		}
+		else
+		{
+			changeAlpha(healthKit, 0.2f);
 		}
 
 		Vector3 playerDirection = Vector3.right * player.GetAxisRaw("RHorizontal") + Vector3.forward * player.GetAxisRaw("RVertical");
@@ -263,8 +281,26 @@ public class PlayerController : MonoBehaviour {
 
 		if(player.GetButtonDown("Left") && hasDoubleDamage)
 		{
-			
 			usingDoubleDamage = true;
+		}
+
+		if(player.GetButtonDown("Right") && hasHealthKit)
+		{
+			if(health < 100)
+			{
+				if(health <= 50)
+				{
+					health += 50;
+					healthBar.fillAmount = health / startHealth;
+				}
+				else if(health > 50)
+				{
+					health = 100;
+					healthBar.fillAmount = health / startHealth;
+				}
+
+				hasHealthKit = false;
+			}
 		}
 	}
 
