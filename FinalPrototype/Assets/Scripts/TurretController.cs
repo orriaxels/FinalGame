@@ -32,22 +32,40 @@ public class TurretController : MonoBehaviour {
 	void Update () {
 		Vector3 distanceToRed = redPlayer.position - this.transform.position;
 		Vector3 distanceToBlue = bluePlayer.position - this.transform.position;
-		Vector3 direction;
+		Vector3 direction = distanceToRed;
+
+		
+		
+
+		if ((distanceToRed.magnitude <= startToAimDistance && !redPlayer.GetComponent<PlayerController>().knocked) || (distanceToBlue.magnitude <= startToAimDistance && !bluePlayer.GetComponent<PlayerController>().knocked))
+		{
+			startToAim = true;
+		} 
+		else
+		{
+			startToAim = false;
+		}
 
 		
 
-		if (distanceToRed.magnitude <= startToAimDistance || distanceToBlue.magnitude <= startToAimDistance) 
-			startToAim = true;
-		else
-			startToAim = false;
-
-		if (distanceToRed.magnitude < distanceToBlue.magnitude) 
+		if(bluePlayer.GetComponent<PlayerController>().knocked)
 		{
 			direction = distanceToRed;
-		} 
-		else 
+		}
+		else if(redPlayer.GetComponent<PlayerController>().knocked)
 		{
 			direction = distanceToBlue;
+		}
+		else if(!redPlayer.GetComponent<PlayerController>().knocked && !bluePlayer.GetComponent<PlayerController>().knocked)
+		{
+			if (distanceToRed.magnitude < distanceToBlue.magnitude) 
+			{
+				direction = distanceToRed;	
+			} 
+			else 
+			{
+				direction = distanceToBlue;
+			}
 		}
 
 		if(startToAim)

@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
     public bool pushing;
 
 	// Loot objects
-
 	// shield
 	public Image shield;
 	public bool hasShield = false;
@@ -44,6 +43,15 @@ public class PlayerController : MonoBehaviour {
 	public Image healthKit;
 	public bool hasHealthKit = false;
 	public GameObject healthKitObject;
+	public bool knocked;
+	public float knockedOutSpeed = 0.01f;
+	public bool healingMode;
+	public Image healingCircle;
+	public float healingCounter = 0f;
+	public float healingBar = 0;
+	public Text holdToHeal1;
+	public Text holdToHeal2;
+	public Image triangle;
 
 	private bool fire;
 	public float rotateSpeed;
@@ -61,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 	float turnAmount;
 
 	private PushObject pushableObj;
+	private GameObject otherPlayer;
 
 	void Awake() {
 		// Get the Rewired Player object for this player and keep it for 
@@ -82,12 +91,41 @@ public class PlayerController : MonoBehaviour {
 		
 		changeAlpha(shield, 0.2f);
 		changeAlpha(doubleDamage, 0.2f);
+		changeAlpha(healingCircle, 0);
+		changeAlpha(triangle, 0);
+		changeTextAlpha(holdToHeal1, 0);
+		changeTextAlpha(holdToHeal2, 0);
+		
 		healthBar.fillAmount = health / startHealth;
 	}
 	
 	// Update is called once per frame
-	void Update () {    
-		GetInput();
+	void Update () {  
+		if(health <= 0)
+		{
+			knocked = true;
+			moveSpeed = knockedOutSpeed;
+			changeAlpha(healingCircle, 1);
+			changeAlpha(triangle, 1);
+			changeTextAlpha(holdToHeal1, 1);
+			changeTextAlpha(holdToHeal2, 1);
+			theGun.isFiring = false;
+
+		}
+		else
+		{
+			moveSpeed = 5;
+			knocked = false;
+			changeAlpha(healingCircle, 0);
+			changeTextAlpha(holdToHeal1, 0);
+			changeTextAlpha(holdToHeal2, 0);
+			changeAlpha(triangle, 0);
+		}
+		
+		if(!knocked)
+		{
+			GetInput();
+		}
 		
 		if(hasShield)
 		{
@@ -254,12 +292,25 @@ public class PlayerController : MonoBehaviour {
 
     public void takeDamage(float amount)
     {
-		if(!usingShield)
+		if(!usingShield && !knocked)
 		{
 			health -= amount;
 			healthBar.fillAmount = health / startHealth;
 		}
     }
+
+	public void giveHealth(float amount)
+	{
+		health += amount;
+		healthBar.fillAmount = health / startHealth;
+	}
+
+	public void giveHealing(float amount)
+	{
+		Debug.Log("Healing Amounnt: " + amount);
+		healingBar = amount;
+		healingCircle.fillAmount = healingBar;
+	}
 
     private void ConvertMoveInput()
 	{
@@ -320,6 +371,33 @@ public class PlayerController : MonoBehaviour {
 				hasHealthKit = false;
 			}
 		}
+
+		if(player.GetButtonSinglePressHold("Heal") && healingMode && otherPlayer != null)
+		{
+
+			// otherPlayer.GetComponent<PlayerController>().giveHealth(50);
+			Debug.Log("HEALING!!!!");
+			healingCounter += Time.deltaTime;
+			if(healingCounter < 5)
+			{
+				Debug.Log(healingCounter / 5);
+				otherPlayer.GetComponent<PlayerController>().giveHealing(healingCounter / 5);
+			}
+			else
+			{
+				otherPlayer.GetComponent<PlayerController>().giveHealing(0);
+				healingCounter = 0;
+				otherPlayer.GetComponent<PlayerController>().giveHealth(50);
+				healingMode = false;
+			}
+		}
+
+		if(player.GetButtonUp("Heal") && healingMode && otherPlayer != null)
+		{
+			otherPlayer.GetComponent<PlayerController>().giveHealing(0);
+			healingCounter = 0;
+			healingMode = false;
+		}
 	}
 
 	private void changeAlpha(Image image, float value)
@@ -327,6 +405,13 @@ public class PlayerController : MonoBehaviour {
 		Color c = image.color;
 		c.a = value;
 		image.color = c;
+	}
+
+		private void changeTextAlpha(Text text, float value)
+	{
+		Color c = text.color;
+		c.a = value;
+		text.color = c;
 	}
 
 	void OnCollisionEnter(Collision col)
@@ -339,5 +424,20 @@ public class PlayerController : MonoBehaviour {
 				Physics.IgnoreCollision(col.collider, GetComponent<SphereCollider>());
 			}
 		}
+
+		if(col.gameObject.tag == "Player" && col.gameObject.GetComponent<PlayerController>().knocked)
+		{
+			healingMode = true;
+			otherPlayer = col.gameObject;
+		}
   	}
+
+	void OnCollisionExit(Collision col)
+	{
+		if(col.gameObject.tag == "Player" && col.gameObject.GetComponent<PlayerController>().knocked)
+		{
+			healingMode = false;
+			otherPlayer = null;
+		}
+	}
 }
