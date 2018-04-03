@@ -236,7 +236,6 @@ public class PlayerController : MonoBehaviour {
         }
 
         myRigidBody.AddForce(movement * moveSpeed / Time.deltaTime);
-
     }
 
 
@@ -325,9 +324,9 @@ public class PlayerController : MonoBehaviour {
 
 	private void changeAlpha(Image image, float value)
 	{
-			Color c = image.color;
-			c.a = value;
-			image.color = c;
+		Color c = image.color;
+		c.a = value;
+		image.color = c;
 	}
 
 	void OnCollisionEnter(Collision col)
