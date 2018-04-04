@@ -35,36 +35,28 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isFiring && !overHeat) {
-			if (timer == cooldown) 
+		if (isFiring && !overHeat)
+		{
+			
+			timer -= Time.deltaTime;
+
+			if(timer <= 0)
 			{
 				Bullet newBullet = Instantiate (bullet, firePoint.position, firePoint.rotation) as Bullet;
 				newBullet.speed = bulletSpeed;
+				overHeatTimer -= 0.25f;
+				timer = cooldown;
 				if(transform.parent.gameObject.GetComponent<PlayerController>().usingDoubleDamage)
 				{
 					newBullet.damage = 50;
 				}
 			}
-
-			overHeatTimer -= Time.deltaTime;
-			timer -= Time.deltaTime;
 		} 
 		else 
 		{
-			timer = cooldown;
 			overHeatTimer += Time.deltaTime * 1.5f;
 			if (overHeatTimer > overHeatCoolDown)
 				overHeatTimer = overHeatCoolDown;
-		}
-
-		if (timer <= 0.0f) {
-			Bullet newBullet = Instantiate (bullet, firePoint.position, firePoint.rotation) as Bullet;
-			newBullet.speed = bulletSpeed;
-			timer = 0.29f;
-			if(transform.parent.gameObject.GetComponent<PlayerController>().usingDoubleDamage)
-			{
-				newBullet.damage = 50;
-			}
 		}
 
 		if (overHeatTimer < 0) 
