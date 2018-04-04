@@ -35,8 +35,6 @@ public class Bullet : MonoBehaviour
         {
             col.gameObject.GetComponent<PlayerController>().takeDamage(damage);
             Destroy(this.gameObject);
-            // GameObject bulletImpact = Instantiate(impactEffect, transform.position, transform.rotation);
-            // Destroy(bulletImpact, 2.0f);
             bulletImpact();
         }
 
@@ -51,8 +49,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             if (!enemyBullet)
-            {
-                // Instantiate(impactEffect, transform.position, transform.rotation);
+            {            
                 bulletImpact();
             }
         }
@@ -61,7 +58,6 @@ public class Bullet : MonoBehaviour
         {
             col.gameObject.GetComponent<TurretController>().TakeDamage(damage);
             Destroy(this.gameObject);
-            // Instantiate(impactEffect, transform.position, transform.rotation);
             bulletImpact();
         }
 
@@ -69,7 +65,6 @@ public class Bullet : MonoBehaviour
         {
             col.gameObject.GetComponent<LootCrate>().takeDamage(20);
             Destroy(this.gameObject);
-            // Instantiate(impactEffect, transform.position, transform.rotation);
             bulletImpact();
         }
     }
