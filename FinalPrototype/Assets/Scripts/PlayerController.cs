@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 // [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour {
-
+    public int rewiredAction1;
 	public int playerId = 0; // The Rewired player id of this character
 	public float health = 100;
     private float startHealth = 100;
@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour {
 	public Text holdToHeal1;
 	public Text holdToHeal2;
 	public Image triangle;
+
+	// Pause
+	public bool paused;
 
 	private bool fire;
 	public float rotateSpeed;
@@ -101,6 +104,22 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {  
+		
+		if(player.GetButtonDown("Pause") && !paused)
+		{
+			GameObject.FindObjectOfType<GameController>().paused = true;
+		}
+		else if(player.GetButtonDown("Pause") && paused)
+		{
+			GameObject.FindObjectOfType<GameController>().paused = false;
+		}
+		
+		if(paused)
+		{
+			Debug.Log("PAUSED!!");
+			return;
+		}
+
 		if(health <= 0)
 		{
 			knocked = true;
@@ -175,12 +194,12 @@ public class PlayerController : MonoBehaviour {
 			changeAlpha(healthKit, 0.2f);
 		}
 
+
 		Vector3 playerDirection = Vector3.right * player.GetAxisRaw("RHorizontal") + Vector3.forward * player.GetAxisRaw("RVertical");
 		if(playerDirection.sqrMagnitude > 0.3f)
 		{
 			transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-		}
-	      
+		}      
 	}
 
     private void FixedUpdate()
@@ -439,5 +458,19 @@ public class PlayerController : MonoBehaviour {
 			healingMode = false;
 			otherPlayer = null;
 		}
+	}
+
+	public void setActionId(int id)
+	{
+		player.controllers.maps.SetMapsEnabled(enabled, "UI");
+		// player = ReInput.players.GetPlayer(id);
+		// Debug.Log("PlayerID - PAUSED: " + player.id);
+	}
+
+	public void setPlayerOriginalId()
+	{
+		// player = ReInput.players.GetPlayer(playerId);
+		player.controllers.maps.SetMapsEnabled(enabled, "Default");
+		Debug.Log("PlayerID - NOT PAUSED: " + player.id);
 	}
 }
